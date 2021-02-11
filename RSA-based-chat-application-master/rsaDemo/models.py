@@ -48,6 +48,9 @@ class messageModel(models.Model):
     phi = models.TextField(blank=True, null=True)
     modulus = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return self.cipherText
+
 
 class roomHasMessages(models.Model):
     roomId = models.ForeignKey(roomModel, on_delete=models.CASCADE)  # needs to be a room

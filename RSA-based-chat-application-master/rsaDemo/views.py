@@ -42,7 +42,8 @@ def joinRoom(request):
 
 
 def privateChat(request):
-    users = User.objects.all()
+    users = User.objects.exclude(username="test")
+
     context = {
         'users': users,
     }
@@ -100,7 +101,8 @@ def room(request, room_name):
             bitlength = form.cleaned_data['bits']
             form.save()
             rsaObj = messageModel.objects.filter(text=plaintext)
-            rsaObj = rsaObj[0]
+            leng = len(rsaObj)-1
+            rsaObj = rsaObj[leng]
             rsaObj.date = datetime.now()
             rsaObj.sender = request.user.username
             rsaObj.room = roomModel.objects.get(roomName=room_name)
