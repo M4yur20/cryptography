@@ -16,8 +16,6 @@ roomType_choices = (
 )
 
 
-
-
 class roomModel(models.Model):
     roomId = models.BigAutoField(primary_key=True)
     roomName = models.CharField(max_length=200, unique=True)

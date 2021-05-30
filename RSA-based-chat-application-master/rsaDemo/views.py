@@ -53,7 +53,7 @@ def privateChat(request):
 @login_required
 def createRoom(request):
     form = roomForm(request.POST)
-    if (request.method == 'POST'):
+    if request.method == 'POST':
         if form.is_valid():
             roomName = form.cleaned_data['roomName']
             if not roomModel.objects.filter(roomName=roomName).exists():

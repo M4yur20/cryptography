@@ -1,0 +1,5 @@
+Django
+channels
+mysqlclient
+gunicorn
+django-mysql==2.2.0
